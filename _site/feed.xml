@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-21T15:45:52-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Leonardo Sanchez-Aragon</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Leo!</title><link href="http://localhost:4000/my-new-url" rel="alternate" type="text/html" title="Welcome to Leo!" /><published>2024-10-21T10:39:18-05:00</published><updated>2024-10-21T10:39:18-05:00</updated><id>http://localhost:4000/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/my-new-url"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>Jekyll requires blog post files to be named according to the following format:</p>
+
+<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+
+<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name>Leo</name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">Mi primer file!</title><link href="http://localhost:4000/jekyll/update/2024/10/21/mi-primer-file.html" rel="alternate" type="text/html" title="Mi primer file!" /><published>2024-10-21T10:39:18-05:00</published><updated>2024-10-21T10:39:18-05:00</updated><id>http://localhost:4000/jekyll/update/2024/10/21/mi-primer-file</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2024/10/21/mi-primer-file.html"><![CDATA[<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<h2 id="11-series-de-tiempo-estacionarias-y-no-estacionarias-"><font color="blue">1.1 Series de tiempo Estacionarias y No Estacionarias </font></h2>
+
+<font color="orange"> Proceso estocástico estacionario</font>
+<p>(estacionariedad estricta).</p>
+
+<p>El proceso estocástico \(\left\{x_t: t=1,2, \ldots\right\}\) es estacionario si la distribución conjunta de \(\left(x_{1}, x_{2}\right.\), \(\left.\ldots, x_{m}\right)\) es la mismo que la distribución conjunta de \(\left(x_{1+h} , x_{2+h}, \ldots, x_{m+h}\right)\) para todos los números enteros \(h \geq 1\).</p>
+<blockquote>
+  <ul>
+    <li>La secuencia es identicamente distribuida</li>
+    <li>No hay restriccion sobre como  \(\left(x_{1}, x_{2}\right.\), \(\left.\ldots, x_{m}\right)\) esta relacionado con \(\left(x_{1+h} , x_{2+h}, \ldots, x_{m+h}\right)\)</li>
+    <li>Estacionariedad requiere que la naturaleza de cualquier correlacion entre dos terminos adjacentes sea la misma a lo largo del tiempo.</li>
+  </ul>
+</blockquote>
+
+<font color="green">Nota:</font>
+<p>Un proceso estocástico que no es estacionario se dice <strong>Proceso No Estacionario</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear
+set obs 10000
+
+gen t=_n
+tsset t
+
+gen y = .
+replace y = 1 if t==1
+
+gen e = rnormal()
+
+
+forvalues i=2/10000 {
+	qui: replace y = 1+  0.25*l.e + e if t==`i'
+	}
+	
+line y t
+</code></pre></div></div>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[]]></summary></entry></feed>

@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Leonardo Sanchez-Aragon</title>
+</head>
+<body>
+    <h1 style="color: blue">Leonardo Sanchez-Aragon</h1>
+<hr><br>
+
+    
+
+
+
+<h2>This is a post</h2>
+<hr>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<h2 id="11-series-de-tiempo-estacionarias-y-no-estacionarias-"><font color="blue">1.1 Series de tiempo Estacionarias y No Estacionarias </font></h2>
+
+<font color="orange"> Proceso estocástico estacionario</font>
+<p>(estacionariedad estricta).</p>
+
+<p>El proceso estocástico \(\left\{x_t: t=1,2, \ldots\right\}\) es estacionario si la distribución conjunta de \(\left(x_{1}, x_{2}\right.\), \(\left.\ldots, x_{m}\right)\) es la mismo que la distribución conjunta de \(\left(x_{1+h} , x_{2+h}, \ldots, x_{m+h}\right)\) para todos los números enteros \(h \geq 1\).</p>
+<blockquote>
+  <ul>
+    <li>La secuencia es identicamente distribuida</li>
+    <li>No hay restriccion sobre como  \(\left(x_{1}, x_{2}\right.\), \(\left.\ldots, x_{m}\right)\) esta relacionado con \(\left(x_{1+h} , x_{2+h}, \ldots, x_{m+h}\right)\)</li>
+    <li>Estacionariedad requiere que la naturaleza de cualquier correlacion entre dos terminos adjacentes sea la misma a lo largo del tiempo.</li>
+  </ul>
+</blockquote>
+
+<font color="green">Nota:</font>
+<p>Un proceso estocástico que no es estacionario se dice <strong>Proceso No Estacionario</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear
+set obs 10000
+
+gen t=_n
+tsset t
+
+gen y = .
+replace y = 1 if t==1
+
+gen e = rnormal()
+
+
+forvalues i=2/10000 {
+	qui: replace y = 1+  0.25*l.e + e if t==`i'
+	}
+	
+line y t
+</code></pre></div></div>
+
+
+</body>
+</html>
